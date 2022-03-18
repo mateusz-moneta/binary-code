@@ -40,20 +40,20 @@ class BinaryGrid:
     y = random.uniform(self.c, self.d)
     print("\nRandomly point: (" + str(x) + ", " + str(y) + ")")
 
-    x_bin = self.grid_ab[self.find_closest_key(x, self.grid_ab)]
-    y_bin = self.grid_cd[self.find_closest_key(y, self.grid_cd)]
+    x_binary = self.grid_ab[self.find_closest_key(x, self.grid_ab)]
+    y_binary = self.grid_cd[self.find_closest_key(y, self.grid_cd)]
 
-    return str(x_bin) + str(y_bin)  
+    return str(x_binary) + str(y_binary)  
 
-  def find_closest_key(self, coord, grid):
+  def find_closest_key(self, coordinate, grid):
     self.grid_keys = list(grid.keys())
 
     for key_index in range(len(self.grid_keys)):
-      if coord == self.grid_keys[key_index]:
+      if coordinate == self.grid_keys[key_index]:
         return self.grid_keys[key_index]
 
-      if coord < self.grid_keys[key_index]:
-          if coord - self.grid_keys[key_index - 1] < self.grid_keys[key_index] - coord:
+      if coordinate < self.grid_keys[key_index]:
+          if coordinate - self.grid_keys[key_index - 1] < self.grid_keys[key_index] - coordinate:
             return self.grid_keys[key_index - 1]
           else:
             return self.grid_keys[key_index]
